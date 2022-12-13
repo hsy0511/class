@@ -1,9 +1,11 @@
 # class
 # 강의신청하기
 # 실행화면
-![1](https://user-images.githubusercontent.com/104752580/207238533-b82f3749-6a02-41ad-a0a2-58a5c81b7a13.JPG)
-![2](https://user-images.githubusercontent.com/104752580/207238537-ab1374cf-75c2-42d6-8775-3b2b01c366f7.JPG)
-![4](https://user-images.githubusercontent.com/104752580/207238544-968dbfe1-bf81-4ea5-928a-e2e6f1b4a78b.JPG)
+![1](https://user-images.githubusercontent.com/104752580/207238837-c86f05b1-6d6c-4c6d-bfc3-69077c2d5d30.JPG)
+![2](https://user-images.githubusercontent.com/104752580/207238845-7a138f87-d74a-4625-9788-30b3f5c72893.JPG)
+![4](https://user-images.githubusercontent.com/104752580/207238851-48c3e58d-9657-4623-8f65-7183b12be4ef.JPG)
+![1](https://user-images.githubusercontent.com/104752580/207239295-037515f9-c9d1-43e6-bbc4-3095909bf052.JPG)
+
 # 코드설명
 ```JSP
 <%@ page import="java.sql.*" %>
@@ -157,3 +159,6 @@
 </body>
 </html>
 ```
+### 이 코드에 핵심은 선택한 것에 대해서 나오는 값입니다. 예를 들어서 회원명을 장발장으로 선택했을때 10002가 자동완성이 되는 것을 말합니다. 이 코드에서는 회원명과 강의명을 회원번호와 수강료가 자동완성이 됩니다.
+### 
+###  수강료는 강사코드가 100이면 100000원 200이면 200000원 300이면 300000원 400이면 400000원으로 받을 수 있게 case 문을 작성하였습니다. 그리고 회원번호가 20000이상이면 수강료가 50% 할인하는 것을 if 문으로 작성하였습니다.
