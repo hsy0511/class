@@ -73,3 +73,22 @@
 <input type="reset" value="다시쓰기" onclick="alert('다시작성합니다')">
 ```
 ### 버튼 타입을 리셋으로 설정한 후 온클릭을 설정하여 문구를 띄워주게 작성하였습니다.
+
+# 수강신청_p
+
+```
+request.setCharacterEncoding("UTF-8");
+String sql = "insert into tbl_class_202201 values (?,?,?,?,?)";
+
+Connection conn = DBConnect.getConnection();
+PreparedStatement pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, request.getParameter("resist_month"));
+pstmt.setString(2, request.getParameter("c_no"));
+pstmt.setString(3, request.getParameter("class_area"));
+pstmt.setInt(4, Integer.parseInt(request.getParameter("tuition")));
+pstmt.setString(5, request.getParameter("class_name"));
+
+pstmt.executeUpdate();
+```
+
+### 
