@@ -91,4 +91,6 @@ pstmt.setString(5, request.getParameter("class_name"));
 pstmt.executeUpdate();
 ```
 
-### 
+### 수강신천_p.jsp와 bd를 연동시켜서 5개에 값을 꽂아넣으면 멤버 테이블에 추가가 될수있게 만든 코드입니다.
+tuition는 형변환를 시켜서 integer형으로 받아주고 다른 4개는 get.parameter를 통해 사용자가 적은 값을 string형으로 세팅해주고 pstmt.executeUpdate를 통해서 테이블에 추가가 됩니다.
+추가가 끝나면 자동으로 인덱스 창으로 넘어갑니다.
