@@ -91,4 +91,33 @@ pstmt.setString(5, request.getParameter("class_name"));
 pstmt.executeUpdate();
 ```
 
-### 수강신천_p.jsp와 bd를 연동시켜서 5개에 값을 꽂아넣으면 멤버 테이블에 추가가 될수있게 만든 코드입니다. tuition는 형변환를 시켜서 integer형으로 받아주고 다른 4개는 get.parameter를 통해 사용자가 적은 값을 string형으로 세팅해주고 pstmt.executeUpdate를 통해서 테이블에 추가가 됩니다. 추가가 끝나면 자동으로 인덱스 창으로 넘어갑니다.
+### 수강신청_p.jsp와 bd를 연동시켜서 5개에 값을 꽂아넣으면 멤버 테이블에 추가가 될수있게 만든 코드입니다. tuition는 형변환를 시켜서 integer형으로 받아주고 다른 4개는 get.parameter를 통해 사용자가 적은 값을 string형으로 세팅해주고 pstmt.executeUpdate를 통해서 테이블에 추가가 됩니다. 추가가 끝나면 자동으로 인덱스 창으로 넘어갑니다.
+
+# 회원정보조회
+
+## 쿼리문
+```
+String sql = "select substr(c.resist_month,1,4)||'년'||substr(c.resist_month,5,2)||'월' resist_month, c.C_NO, m.C_NAME, t.CLASS_NAME, c.CLASS_AREA, to_char(CLASS_PRICE,'L999,999')CLASS_PRICE, m.GRADE from TBL_TEACHER_202201 t, TBL_MEMBER_202201 m, TBL_CLASS_202201 c where c.C_NO=m.C_NO and c.TEACHER_CODE = t.TEACHER_CODE";
+```
+### 수강월을 00년 00월로 나타내기 위해서 substr을 활용하였고, 수강료의 원표시를 표기하기 위해서 to_char를 활용하였다. 3개의 테이블을 조인시키며 쿼리문을 완성시켰다.
+
+## 테이블
+```
+<table class= "table_line">
+<tr>
+<th>수강월</th><th>회원번호</th><th>회원명</th><th>강의명</th><th>강의장소</th><th>수강료</th><th>등급</th>
+</tr>
+<% while(rs.next()){ %>
+<tr>
+<td><%= rs.getString(1) %></td>
+<td><%= rs.getString(2) %></td>
+<td><%= rs.getString(3) %></td>
+<td><%= rs.getString(4) %></td>
+<td><%= rs.getString(5) %></td>
+<td><%= rs.getString(6) %></td>
+<td><%= rs.getString(7) %></td>
+</tr>
+<% } %>
+</table>
+```
+### rs.getString을 while문 안에서 반복시키며 값을 출력했습니다. 
