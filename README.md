@@ -128,6 +128,7 @@ where c.C_NO=m.C_NO and c.TEACHER_CODE = t.TEACHER_CODE";
 ### rs.getString을 while문 안에서 반복시키며 값을 출력했습니다. 
 
 # 강사매출현황
+![1](https://user-images.githubusercontent.com/104752580/208007941-6a8114ad-5267-4ae2-b053-b7c7ea265e4c.JPG)
 ## 쿼리문
 ```
 String sql = "select t.teacher_code, t.teacher_name, t.class_name, 
