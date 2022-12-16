@@ -126,3 +126,33 @@ where c.C_NO=m.C_NO and c.TEACHER_CODE = t.TEACHER_CODE";
 </table>
 ```
 ### rs.getString을 while문 안에서 반복시키며 값을 출력했습니다. 
+
+# 강사매출현황
+## 쿼리문
+```
+String sql = "select t.teacher_code, t.teacher_name, t.class_name, 
+to_char(sum(t.CLASS_PRICE),'L999,999') total 
+from TBL_TEACHER_202201 t, TBL_CLASS_202201 c 
+where t.teacher_code = c.teacher_code
+group by t.teacher_code, t.teacher_name, t.class_name
+order by t.teacher_code";
+
+```
+### 강사 코드가 겹치는 강사 테이블과 클래스 테이블을 조인하고 강사코드에 따른 수강료를 sum함수로 더하며 총매출 값을 출력합니다.
+## 테이블
+```
+<table class= "table_line">
+<tr>
+<th>강사코드</th><th>강사명</th><th>강의명</th><th>총매출</th>
+</tr>
+<% while(rs.next()){ %>
+<tr>
+<td><%= rs.getString(1) %></td>
+<td><%= rs.getString(2) %></td>
+<td align="right"><%= rs.getString(3) %></td>
+<td align="right"><%= rs.getString(4) %></td>
+</tr>
+<% } %>
+</table>
+```
+### rs.getString을 while문 안에서 반복시키며 값을 출력했습니다. 
